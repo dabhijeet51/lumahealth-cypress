@@ -17,8 +17,8 @@ This repo contains Cypress E2E tests covering:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-org>/<repo>.git
-   cd <repo>
+   git clone https://github.com/dabhijeet51/lumahealth-cypress.git
+   cd lumahealth-cypress
    ```
 
 2. Install dependencies:
