@@ -4,6 +4,10 @@ npm-debug.log
 yarn-error.log
 
 # Reports
-reports/
+# reports/mochawesome-report/*
+# reports/screeshots/*
+# reports/videos/*
+# reports/html-report/*
+
 
 

@@ -2,14 +2,16 @@ import "cypress-iframe";
 import { homePage } from "../locators/homePage";
 // Navigate top nav by visible text
 Cypress.Commands.add("clickTopNav", (label) => {
-  cy.get("header,nav")
+  cy.get("header, nav") // get the main header/nav
     .first()
     .within(() => {
-      cy.contains("a,button", new RegExp(`^${label}$`, "i"))
+      // Find the first <a> link that matches the label exactly (case-insensitive) and click it
+      cy.contains('a', new RegExp(`^${label}$`))
         .first()
         .click({ force: true });
     });
 });
+
 
 // Validate homepage chrome (header, hero, footer)
 Cypress.Commands.add("assertHomeChrome", () => {

@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-01T13:20:18.933Z",
+    "end": "2025-09-01T13:21:13.406Z",
+    "duration": 54473,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b51a0420-0b71-4ac2-8d82-5040217610f7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\nav.cy.js",
+      "file": "cypress\\e2e\\nav.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+          "title": "Main navigation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "navigates via top nav: Platform",
+              "fullTitle": "Main navigation navigates via top nav: Platform",
+              "timedOut": null,
+              "duration": 10410,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "81def910-2be9-4e30-b4cb-5d4b36cc4e9f",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Who We Serve",
+              "fullTitle": "Main navigation navigates via top nav: Who We Serve",
+              "timedOut": null,
+              "duration": 9853,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "ce72786d-ec0e-4828-b0e7-be03f1129f32",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Integrations",
+              "fullTitle": "Main navigation navigates via top nav: Integrations",
+              "timedOut": null,
+              "duration": 16496,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "a60efdd1-96f0-46bb-a07d-c474091cea08",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Learn",
+              "fullTitle": "Main navigation navigates via top nav: Learn",
+              "timedOut": null,
+              "duration": 8700,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "52f94422-dbb7-40f1-87a3-3a5eac737147",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: About us",
+              "fullTitle": "Main navigation navigates via top nav: About us",
+              "timedOut": null,
+              "duration": 8349,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "70165fde-f6c0-4afb-aff7-f41345d0e2c5",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "81def910-2be9-4e30-b4cb-5d4b36cc4e9f",
+            "ce72786d-ec0e-4828-b0e7-be03f1129f32",
+            "a60efdd1-96f0-46bb-a07d-c474091cea08",
+            "52f94422-dbb7-40f1-87a3-3a5eac737147",
+            "70165fde-f6c0-4afb-aff7-f41345d0e2c5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53808,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

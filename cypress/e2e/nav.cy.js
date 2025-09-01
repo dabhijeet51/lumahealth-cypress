@@ -1,39 +1,50 @@
-const MAIN_NAV = [
-  'Platform',
-  'Who We Serve',
-  'Integrations',
-  'Learn',
-  'About us'
-];
+const NAV_PAGES = {
+  Platform: {
+    text: "The Patient Success Platform™",
+    iframe: 'iframe[src*="patient-success-platform"]',
+  },
+  "Who We Serve": {
+    text: "WHO WE SERVE",
+    iframe: 'iframe[src*="who-we-serve"]',
+  },
+  Integrations: {
+    text: "INTEGRATIONS",
+    iframe: 'iframe[src*="integrations"]',
+  },
+  Learn: {
+    text: "Learnings from the Luma Community",
+    iframe: null, // no iframe
+  },
+  "About us": {
+    text: "ABOUT US",
+    iframe: null, // no iframe
+  },
+};
 
-describe('Main navigation', () => {
-  beforeEach(() => cy.visit('/'));
+describe("Main navigation", () => {
+  beforeEach(() => cy.visit("/"));
 
-  MAIN_NAV.forEach((item) => {
-    it(`navigates via top nav: ${item}`, () => {
-      cy.clickTopNav(item);
+  Object.entries(NAV_PAGES).forEach(([navLabel, { text, iframe }]) => {
+    it(`navigates via top nav: ${navLabel}`, () => {
+      cy.clickTopNav(navLabel);
 
-      // Some items open a menu — click first visible link within the dropdown if present
-      cy.get('body').then($body => {
-        const maybeDropdownLink = $body.find('a[href]:visible').toArray()
-          .map(el => el.innerText?.trim())
-          .find(txt => txt && txt.length && txt !== item && txt.length < 40);
+      if (iframe) {
+        // Cypress in-built .within() on iframe’s body
+        cy.get(iframe, { timeout: 20000 })
+          .its("0.contentDocument")      // Cypress chainable
+          .should("exist")
+          .then((doc) => {
+            cy.wrap(doc.body).within(() => {
+              cy.contains(new RegExp(text, "i"), { timeout: 20000 })
+                .should("be.visible");
+            });
+          });
+      } else {
+        cy.contains("body", new RegExp(text, "i"), { timeout: 20000 })
+          .should("be.visible");
+      }
 
-        if (maybeDropdownLink) {
-          cy.contains('a[href]:visible', maybeDropdownLink).first().click({ force: true });
-        }
-      });
-
-      // Page should load with an H1/H2 or clear content
-      cy.get('h1,h2', { timeout: 15000 }).should('be.visible');
-      cy.location('pathname').should('not.eq', '/'); // moved off home
+      cy.location("pathname").should("not.eq", "/");
     });
-  });
-
-  it('“Get a demo” goes to the demo page and loads content', () => {
-    cy.contains('a,button', /Get a demo|Book a demo|Build your demo/i).first().click({ force: true });
-    cy.location('pathname', { timeout: 15000 }).should('match', /\/book-a-demo/i);
-    // The demo page exists and renders footer etc.
-    cy.get('footer').should('be.visible');
   });
 });

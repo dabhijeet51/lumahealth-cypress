@@ -1,0 +1,494 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 13,
+    "passes": 12,
+    "pending": 0,
+    "failures": 1,
+    "testsRegistered": 13,
+    "passPercent": 92.3076923076923,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-09-01T13:19:10.651Z",
+    "end": "2025-09-01T13:21:45.574Z",
+    "duration": 154923
+  },
+  "results": [
+    {
+      "uuid": "6a7a5fc8-9db9-450b-869a-886409d803e4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\home.cy.js",
+      "file": "cypress\\e2e\\home.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "adf7cee4-253e-4b26-82c0-76dfffeb2645",
+          "title": "Homepage Validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "loads and shows key elements (header, hero, footer)",
+              "fullTitle": "Homepage Validation loads and shows key elements (header, hero, footer)",
+              "timedOut": null,
+              "duration": 7102,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/\");\ncy.assertHomeChrome();",
+              "err": {},
+              "uuid": "58c778a2-0d45-4a16-b931-e7002c0864a4",
+              "parentUUID": "adf7cee4-253e-4b26-82c0-76dfffeb2645",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "58c778a2-0d45-4a16-b931-e7002c0864a4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7102,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "b51a0420-0b71-4ac2-8d82-5040217610f7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\nav.cy.js",
+      "file": "cypress\\e2e\\nav.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+          "title": "Main navigation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "navigates via top nav: Platform",
+              "fullTitle": "Main navigation navigates via top nav: Platform",
+              "timedOut": null,
+              "duration": 10410,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "81def910-2be9-4e30-b4cb-5d4b36cc4e9f",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Who We Serve",
+              "fullTitle": "Main navigation navigates via top nav: Who We Serve",
+              "timedOut": null,
+              "duration": 9853,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "ce72786d-ec0e-4828-b0e7-be03f1129f32",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Integrations",
+              "fullTitle": "Main navigation navigates via top nav: Integrations",
+              "timedOut": null,
+              "duration": 16496,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "a60efdd1-96f0-46bb-a07d-c474091cea08",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: Learn",
+              "fullTitle": "Main navigation navigates via top nav: Learn",
+              "timedOut": null,
+              "duration": 8700,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "52f94422-dbb7-40f1-87a3-3a5eac737147",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "navigates via top nav: About us",
+              "fullTitle": "Main navigation navigates via top nav: About us",
+              "timedOut": null,
+              "duration": 8349,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clickTopNav(navLabel);\nif (iframe) {\n  // Cypress in-built .within() on iframe’s body\n  cy.get(iframe, {\n    timeout: 20000\n  }).its(\"0.contentDocument\") // Cypress chainable\n  .should(\"exist\").then(doc => {\n    cy.wrap(doc.body).within(() => {\n      cy.contains(new RegExp(text, \"i\"), {\n        timeout: 20000\n      }).should(\"be.visible\");\n    });\n  });\n} else {\n  cy.contains(\"body\", new RegExp(text, \"i\"), {\n    timeout: 20000\n  }).should(\"be.visible\");\n}\ncy.location(\"pathname\").should(\"not.eq\", \"/\");",
+              "err": {},
+              "uuid": "70165fde-f6c0-4afb-aff7-f41345d0e2c5",
+              "parentUUID": "9bcb8f72-5398-4a82-b5f4-1b9dde1958cc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "81def910-2be9-4e30-b4cb-5d4b36cc4e9f",
+            "ce72786d-ec0e-4828-b0e7-be03f1129f32",
+            "a60efdd1-96f0-46bb-a07d-c474091cea08",
+            "52f94422-dbb7-40f1-87a3-3a5eac737147",
+            "70165fde-f6c0-4afb-aff7-f41345d0e2c5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 53808,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7354e362-9aed-4c43-acbc-67c58fdaa282",
+      "title": "",
+      "fullFile": "cypress\\e2e\\notfound.cy.js",
+      "file": "cypress\\e2e\\notfound.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6744f2c0-30cf-4e28-8b96-62f01cd0a058",
+          "title": "404 Page Validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should show a proper 404 page for invalid URLs",
+              "fullTitle": "404 Page Validation Should show a proper 404 page for invalid URLs",
+              "timedOut": null,
+              "duration": 5779,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _commonUtils.validate404Page)(\"/nonexistent-page-404\");",
+              "err": {},
+              "uuid": "064c623e-c33e-49fb-af07-3a3e5c9daecd",
+              "parentUUID": "6744f2c0-30cf-4e28-8b96-62f01cd0a058",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Another invalid path also shows 404",
+              "fullTitle": "404 Page Validation Another invalid path also shows 404",
+              "timedOut": null,
+              "duration": 4392,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _commonUtils.validate404Page)(\"/definitely-does-not-exist\");",
+              "err": {},
+              "uuid": "94bb9bb6-c9fa-4228-9ec1-36fef5ef4d6d",
+              "parentUUID": "6744f2c0-30cf-4e28-8b96-62f01cd0a058",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "064c623e-c33e-49fb-af07-3a3e5c9daecd",
+            "94bb9bb6-c9fa-4228-9ec1-36fef5ef4d6d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10171,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "4c356774-c639-4993-9ce8-1578a3df2ea7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\responsive.cy.js",
+      "file": "cypress\\e2e\\responsive.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a995aae-ff2c-4f0b-b090-f61bc2c80dea",
+          "title": "Responsive layout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "renders on 1280x800",
+              "fullTitle": "Responsive layout renders on 1280x800",
+              "timedOut": null,
+              "duration": 5466,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(vp.w, vp.h);\ncy.visit('/');\ncy.get('header,nav').should('be.visible');\ncy.get('footer').should('be.visible');",
+              "err": {},
+              "uuid": "88b07ba9-df94-4c9c-ba47-e3bcde2884c7",
+              "parentUUID": "9a995aae-ff2c-4f0b-b090-f61bc2c80dea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "renders on 768x1024",
+              "fullTitle": "Responsive layout renders on 768x1024",
+              "timedOut": null,
+              "duration": 5677,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(vp.w, vp.h);\ncy.visit('/');\ncy.get('header,nav').should('be.visible');\ncy.get('footer').should('be.visible');",
+              "err": {},
+              "uuid": "8401dc8c-4214-45eb-9e73-478bc6063299",
+              "parentUUID": "9a995aae-ff2c-4f0b-b090-f61bc2c80dea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "renders on 375x667",
+              "fullTitle": "Responsive layout renders on 375x667",
+              "timedOut": null,
+              "duration": 5309,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(vp.w, vp.h);\ncy.visit('/');\ncy.get('header,nav').should('be.visible');\ncy.get('footer').should('be.visible');",
+              "err": {},
+              "uuid": "88f0b2dd-0536-4ac2-84f5-8258377604e6",
+              "parentUUID": "9a995aae-ff2c-4f0b-b090-f61bc2c80dea",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "88b07ba9-df94-4c9c-ba47-e3bcde2884c7",
+            "8401dc8c-4214-45eb-9e73-478bc6063299",
+            "88f0b2dd-0536-4ac2-84f5-8258377604e6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16452,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "2028db3b-a43c-4460-a9a9-87ae9be80da3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\contact.cy.js",
+      "file": "cypress\\e2e\\contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+          "title": "Contact (Book a demo) form embedded on www.lumahealth.io",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "shows required validation for all mandatory fields",
+              "fullTitle": "Contact (Book a demo) form embedded on www.lumahealth.io shows required validation for all mandatory fields",
+              "timedOut": null,
+              "duration": 22505,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validateRequiredFields(_contactPage.contactPage.iframe);",
+              "err": {},
+              "uuid": "fc07f2e4-9f0d-448d-94e2-e67b947a22f3",
+              "parentUUID": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "accepts valid inputs (client-side) and attempts submit",
+              "fullTitle": "Contact (Book a demo) form embedded on www.lumahealth.io accepts valid inputs (client-side) and attempts submit",
+              "timedOut": null,
+              "duration": 32581,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  \"reports/screenshots/contact.cy.js/[object Object] -- accepts valid inputs (client-side) and attempts submit (failed).png\",\n  \"reports/videos/contact.cy.js.mp4\"\n]",
+              "code": "cy.submitContactForm(_contactPage.contactPage.iframe, data);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `h1 span`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `h1 span`, but never found it.\n    at Context.eval (webpack://lumahealth-cypress/./cypress/support/commands.js:99:30)",
+                "diff": null
+              },
+              "uuid": "80103f96-4114-403f-80cf-5d5973bdb067",
+              "parentUUID": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc07f2e4-9f0d-448d-94e2-e67b947a22f3"
+          ],
+          "failures": [
+            "80103f96-4114-403f-80cf-5d5973bdb067"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 55086,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

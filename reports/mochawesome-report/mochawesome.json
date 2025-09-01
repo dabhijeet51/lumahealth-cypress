@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-01T13:19:10.651Z",
+    "end": "2025-09-01T13:20:06.198Z",
+    "duration": 55547,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2028db3b-a43c-4460-a9a9-87ae9be80da3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\contact.cy.js",
+      "file": "cypress\\e2e\\contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+          "title": "Contact (Book a demo) form embedded on www.lumahealth.io",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "shows required validation for all mandatory fields",
+              "fullTitle": "Contact (Book a demo) form embedded on www.lumahealth.io shows required validation for all mandatory fields",
+              "timedOut": null,
+              "duration": 22505,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validateRequiredFields(_contactPage.contactPage.iframe);",
+              "err": {},
+              "uuid": "fc07f2e4-9f0d-448d-94e2-e67b947a22f3",
+              "parentUUID": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "accepts valid inputs (client-side) and attempts submit",
+              "fullTitle": "Contact (Book a demo) form embedded on www.lumahealth.io accepts valid inputs (client-side) and attempts submit",
+              "timedOut": null,
+              "duration": 32581,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  \"reports/screenshots/contact.cy.js/[object Object] -- accepts valid inputs (client-side) and attempts submit (failed).png\",\n  \"reports/videos/contact.cy.js.mp4\"\n]",
+              "code": "cy.submitContactForm(_contactPage.contactPage.iframe, data);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `h1 span`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 15000ms: Expected to find element: `h1 span`, but never found it.\n    at Context.eval (webpack://lumahealth-cypress/./cypress/support/commands.js:99:30)",
+                "diff": null
+              },
+              "uuid": "80103f96-4114-403f-80cf-5d5973bdb067",
+              "parentUUID": "082c1996-64bd-4f4d-b454-e9afdd57d4d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc07f2e4-9f0d-448d-94e2-e67b947a22f3"
+          ],
+          "failures": [
+            "80103f96-4114-403f-80cf-5d5973bdb067"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 55086,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
