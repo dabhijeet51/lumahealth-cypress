@@ -9,10 +9,10 @@ module.exports = defineConfig({
     video: true,
     screenshotsFolder: "reports/screenshots",
     videosFolder: "reports/videos",
-    defaultCommandTimeout: 15000, // increase for iframe
-    pageLoadTimeout: 60000, // increase for slow HubSpot
+    defaultCommandTimeout: 15000, 
+    pageLoadTimeout: 60000, 
 
-    chromeWebSecurity: false, // allow cross-subdomain iframe
+    chromeWebSecurity: false, 
     experimentalOriginDependencies: true,
     screenshotOnRunFailure: true,
 

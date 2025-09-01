@@ -55,4 +55,4 @@ This repo contains Cypress E2E tests covering:
 
 # Assumptions
 
-- CAPTCHA will be disabled in the test environment
+- CAPTCHA would be disabled in the test environment

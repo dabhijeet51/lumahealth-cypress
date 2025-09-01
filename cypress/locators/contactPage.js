@@ -1,5 +1,5 @@
 export const contactPage = {
-  // HubSpot iframe selector
+  // iframe selector
   iframe: 'iframe[src*="book-a-demo-embed"]',
 
   // Form fields inside iframe
@@ -15,16 +15,13 @@ export const contactPage = {
     interest: '.input textarea[name="what_are_you_interested_in_"]',
     about_us: '.input textarea[name="how_d_you_hear_about_us_"]',
     thankYou: "h1 span",
-    confirmation: "p span", // use with text match
+    confirmation: "p span", 
   },
 
-  // Generic error message inside HubSpot form
   errorMessage: ".hs-error-msg, .error, .field-error",
 
-  // Top nav "Get a demo" button
   getDemoButton: 'a[href*="book-a-demo"], button:contains("Get a demo")',
 
-  //Submit button on Contact form
   submitButton: 'button[type="submit"], input[type="submit"]',
 
   // Required fields array

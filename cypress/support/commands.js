@@ -1,27 +1,21 @@
 import "cypress-iframe";
 import { homePage } from "../locators/homePage";
+
 // Navigate top nav by visible text
 Cypress.Commands.add("clickTopNav", (label) => {
-  cy.get("header, nav") // get the main header/nav
+  cy.get("header, nav")
     .first()
     .within(() => {
-      // Find the first <a> link that matches the label exactly (case-insensitive) and click it
-      cy.contains('a', new RegExp(`^${label}$`))
+      cy.contains("a", new RegExp(`^${label}$`))
         .first()
         .click({ force: true });
     });
 });
 
-
 // Validate homepage chrome (header, hero, footer)
 Cypress.Commands.add("assertHomeChrome", () => {
-  // Header
   cy.get(homePage.header).should("be.visible");
-
-  // Hero
   cy.get(homePage.hero).first().should("exist").and("be.visible");
-
-  // Footer
   cy.get(homePage.footer).should("exist").and("be.visible");
 
   // Navigation links should have href
@@ -60,7 +54,7 @@ Cypress.Commands.add("submitContactForm", (iframeSelector, data) => {
   const { fields, errorMessage, submitButton } =
     require("../locators/contactPage").contactPage;
 
-  cy.frameLoaded(iframeSelector); // wait for iframe to load
+  cy.frameLoaded(iframeSelector);
 
   cy.iframe(iframeSelector).within(() => {
     // Fill form fields
@@ -84,26 +78,14 @@ Cypress.Commands.add("submitContactForm", (iframeSelector, data) => {
       force: true,
     });
 
-    // Wait briefly to allow CAPTCHA to appear (if any)
-    cy.wait(2000); // optional delay to allow CAPTCHA to render
+    // Validate success via UI
+    cy.get(fields.thankYou).should("have.text", "Thank You!");
+    cy.contains(
+      fields.confirmation,
+      "Your demo request has been received."
+    ).should("be.visible");
 
-    // Check for CAPTCHA presence inside iframe
-    cy.document().then((doc) => {
-      const captchaText = doc.body.innerText;
-      if (captchaText.includes("protected by ")) {
-        cy.log("CAPTCHA detected — skipping post-submit assertions");
-        return;
-      }
-
-      // Validate success via UI
-      cy.get(fields.thankYou).should("have.text", "Thank You!");
-      cy.contains(
-        fields.confirmation,
-        "Your demo request has been received."
-      ).should("be.visible");
-
-      // Ensure no inline errors
-      cy.get(errorMessage).should("not.exist");
-    });
+    // Ensure no inline errors
+    cy.get(errorMessage).should("not.exist");
   });
 });

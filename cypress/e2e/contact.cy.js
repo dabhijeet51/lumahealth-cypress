@@ -5,7 +5,7 @@ describe("Contact (Book a demo) form embedded on www.lumahealth.io", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.clickTopNav("Get a demo");
-    cy.frameLoaded(contactPage.iframe); // wait for iframe to be fully loaded
+    cy.frameLoaded(contactPage.iframe);
   });
 
   it("shows required validation for all mandatory fields", () => {
