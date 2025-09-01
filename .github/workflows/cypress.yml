@@ -49,8 +49,9 @@ jobs:
         with:
           name: cypress-artifacts
           path: |
-            cypress/videos/**
-            cypress/screenshots/**
+            reports/videos/**
+            reports/screenshots/**
+          if-no-files-found: ignore
 
       # 9. Upload final HTML report
       - name: Upload HTML report
