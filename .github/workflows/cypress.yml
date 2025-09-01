@@ -1,8 +1,8 @@
-name: Cypress
+name: Cypress Tests
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
   pull_request:
 
 jobs:
@@ -10,29 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repo
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 2. Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install deps
+      # 3. Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm ci
-          start: ""
-          wait-on: ""
-          command: npm run cy:run
+      # 4. Clean old reports
+      - name: Clean reports
+        run: npm run cy:clean
 
+      # 5. Run Cypress tests
+      - name: Run Cypress tests
+        run: npm run cy:run
+
+      # 6. Merge mochawesome JSONs
       - name: Merge mochawesome reports
         if: always()
-        run: npm run report
+        run: npm run cy:report:merge
 
+      # 7. Generate mochawesome HTML report
+      - name: Generate mochawesome HTML report
+        if: always()
+        run: npm run cy:report:generate
+
+      # 8. Upload videos & screenshots
       - name: Upload videos & screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -42,9 +52,34 @@ jobs:
             cypress/videos/**
             cypress/screenshots/**
 
+      # 9. Upload final HTML report
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
-          path: cypress/reports/html
+          path: reports/html-report
+
+  deploy-report:
+    needs: e2e
+    if: always() # deploy even if tests fail
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo (required for gh-pages action)
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Download the HTML report generated in previous job
+      - name: Download HTML report
+        uses: actions/download-artifact@v4
+        with:
+          name: mochawesome-report
+          path: public
+
+      # 3. Deploy report to GitHub Pages
+      - name: Deploy report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

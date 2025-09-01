@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Cypress tests for the Luma Health marketing site",
   "scripts": {
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --reporter mochawesome --reporter-options overwrite=false,html=false,json=true --reporter-options reportDir=reports/mochawesome-report",
     "cy:headed": "cypress run --headed --browser chrome",
     "cy:clean": "rimraf reports/mochawesome-report && rimraf reports/mochawesome.json && rimraf reports/html-report",
     "cy:report:merge": "npx mochawesome-merge reports/mochawesome-report/*.json > reports/mochawesome.json",
-    "cy:report:generate": "npx mochawesome-report-generator reports/mochawesome.json --reportDir reports/html-report --inline --reportFilename index.html --overwrite && start reports/html-report/index.html",
+    "cy:report:generate": "npx mochawesome-report-generator reports/mochawesome.json --reportDir reports/html-report --inline --reportFilename index.html --overwrite",
+    "cy:report:open": "start reports/html-report/index.html",
     "cy:report": "npm run cy:clean && npm run cy:run && npm run cy:report:merge && npm run cy:report:generate",
-    "cy:headed:report": "npm run cy:clean & npm run cy:headed & npm run cy:report:merge & npm run cy:report:generate"
+    "cy:headed:report": "npm run cy:clean && npm run cy:headed && npm run cy:report:merge && npm run cy:report:generate && npm run cy:report:open"
   },
   "devDependencies": {
     "cypress": "^13.13.0",
