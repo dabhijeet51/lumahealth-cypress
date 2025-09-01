@@ -8,9 +8,9 @@ This repo contains Cypress E2E tests covering:
 - Homepage validation
 - Navigation links (top-level nav + “Get a demo” → /book-a-demo)
 - Contact form (uses the public Book a demo form)
-- Bonus: Responsive checks (desktop/tablet/mobile)
-- Bonus: 404 page behavior
-- Bonus: GitHub Actions CI with artifacts + Mochawesome HTML report
+- Responsive checks (desktop/tablet/mobile)
+- 404 page behavior
+- GitHub Actions CI with artifacts + Mochawesome HTML report
 
 # Setup Instructions
 
@@ -39,6 +39,18 @@ This repo contains Cypress E2E tests covering:
 
      ```bash
      npx cypress run
+     ```
+
+   - Run tests in headed Chrome only:
+
+     ```bash
+     npm run cy:headed
+     ```
+
+   - Run tests in headed Chrome and generate HTML report:
+
+     ```bash
+     npm run cy:headed:report
      ```
 
 # Assumptions

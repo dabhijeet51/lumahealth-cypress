@@ -7,18 +7,23 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 800,
     video: true,
-    screenshotsFolder: "cypress/screenshots",
-    videosFolder: "cypress/videos",
+    screenshotsFolder: "reports/screenshots",
+    videosFolder: "reports/videos",
     defaultCommandTimeout: 15000, // increase for iframe
     pageLoadTimeout: 60000, // increase for slow HubSpot
 
     chromeWebSecurity: false, // allow cross-subdomain iframe
     experimentalOriginDependencies: true,
+    screenshotOnRunFailure: true,
+
+    setupNodeEvents(on, config) {
+      return config;
+    },
   },
 
   reporter: "mochawesome",
   reporterOptions: {
-    reportDir: "cypress/reports",
+    reportDir: "reports/mochawesome-report",
     overwrite: false,
     html: false,
     json: true,

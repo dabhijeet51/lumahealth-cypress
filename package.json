@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Cypress tests for the Luma Health marketing site",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test": "cypress run",
-    "report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged.json && npx mochawesome-report-generator cypress/reports/merged.json -o cypress/reports/html"
-  },
+  "cy:open": "cypress open",
+  "cy:run": "cypress run",
+  "cy:headed": "cypress run --headed --browser chrome",
+  "cy:headed:report": "cypress run --headed --browser chrome && npm run cy:report:merge && npm run cy:report:generate",
+  "cy:report:merge": "npx mochawesome-merge reports/mochawesome-report/*.json > reports/mochawesome.json",
+  "cy:report:generate": "npx marge reports/mochawesome.json --reportDir reports/html-report --inline",
+  "cy:report": "npm run cy:run && npm run cy:report:merge && npm run cy:report:generate"
+},
+
   "devDependencies": {
     "cypress": "^13.13.0",
     "cypress-iframe": "^1.0.1",
