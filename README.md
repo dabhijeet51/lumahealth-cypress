@@ -55,10 +55,4 @@ This repo contains Cypress E2E tests covering:
 
 # Assumptions
 
-- 404 page may return HTTP 404 or 200 with custom error template.
-- Contact form success message should include:
-
-  - Heading: `Thank You!`
-  - Text: `Your demo request has been received.`
-
-- CAPTCHA may appear on form submission; post-submit checks are skipped in that case.
+- CAPTCHA will be disabled in the test environment
